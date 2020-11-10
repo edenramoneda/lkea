@@ -1,4 +1,4 @@
-# lkea2
+# lkea
 
 > A Vue.js project
 
