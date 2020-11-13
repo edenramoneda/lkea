@@ -1,7 +1,7 @@
 
 <template>
      <div style="height: 80vh; width: 100%">
-      <div class="info" style="height: 15%">
+      <div class="info">
         <span>Center: {{ center }}</span>
         <span>Zoom: {{ zoom }}</span>
         <span>Bounds: {{ bounds }}</span>
