@@ -6,7 +6,7 @@ import App from './App'
 import router from './router'
 import { LMap, LTileLayer, LMarker } from 'vue2-leaflet'
 import 'leaflet/dist/leaflet.css'
-import { Icon } from 'leaflet';
+import { Icon,latLngBounds,latLng } from 'leaflet';
 
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
@@ -18,7 +18,8 @@ Icon.Default.mergeOptions({
 Vue.component('l-map', LMap)
 Vue.component('l-tile-layer', LTileLayer)
 Vue.component('l-marker', LMarker)
-
+Vue.component('latLngBounds', latLngBounds)
+Vue.component('latLng', latLng)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

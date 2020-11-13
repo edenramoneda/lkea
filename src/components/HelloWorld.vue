@@ -12,6 +12,8 @@
         :maxZoom="maxZoom"
         :center="center"
         :minZoom="minZoom"
+        :bounds="bounds"
+        :max-bounds="maxBounds"
         :maxBoundsViscosity="maxBoundsViscosity"
         @update:zoom="zoomUpdated"
         @update:center="centerUpdated"
@@ -24,6 +26,7 @@
 
 <script>
 /* eslint-disable */
+import { latLngBounds, latLng } from "leaflet";
 export default {
     
     data () {
@@ -31,11 +34,15 @@ export default {
         url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         zoom: 3,
         center: [47.413220, -1.219482],
-        bounds: null,
         maxZoom: 3,
-        minZoom: 2,
+        minZoom: 3,
         noWrap: true,
-        maxBoundsViscosity: 1.0
+        maxBoundsViscosity: 1.0,
+        bounds: null,
+        maxBounds: latLngBounds([
+          [-84.72233856539854, -180],
+          [85.06500754829302, 180.17578125]
+        ]),
       };
     },
     methods: {
