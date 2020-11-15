@@ -2,29 +2,44 @@
 <template>
   <v-app id="inspire">
     <v-app-bar
-      color="deep-purple accent-4"
+      class="lkea-bg-color lkea-header-nav"
       dark
       prominent
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>My files</v-toolbar-title>
+      <v-spacer/><v-spacer/>
+    
+      
+      <div class="lkea-btn-link" tile>
+         <v-btn icon
+        >
+          <v-icon>mdi-map-marker</v-icon>
+          <p>stores</p>
+        </v-btn>
+        <v-btn icon>
+          <v-icon>mdi-account</v-icon>
+          <p>sign in</p>
+        </v-btn>
 
-      <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-filter</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+        <v-btn icon>
+          <v-icon>mdi-cart</v-icon>
+          <p>cart</p>
+        </v-btn>
+        <v-btn icon>
+          <v-icon>mdi-magnify</v-icon>
+          <p>search</p>
+        </v-btn>
+        <v-btn icon>
+          <v-icon>mdi-dots-vertical</v-icon>
+          <p>more</p>
+        </v-btn>
+      </div>
     </v-app-bar>
-    <div style="height: 80vh; width: 100%">
+      <v-toolbar-title class="company-name text-center">
+        <h1><b>IKEA</b></h1>
+      </v-toolbar-title>
+
       <l-map
         style="height: 80vh; width: 100%"
         :zoom="zoom"
@@ -35,13 +50,13 @@
         :max-bounds="maxBounds"
         :attributionControl="attributionControl"
         :maxBoundsViscosity="maxBoundsViscosity"
+        :id="id"
         @update:zoom="zoomUpdated"
         @update:center="centerUpdated"
         @update:bounds="boundsUpdated"
       >
         <l-tile-layer :url="url" :noWrap="noWrap" :attributionControl="attributionControl"></l-tile-layer>
       </l-map>
-    </div>
   </v-app>
 </template>
 
@@ -52,7 +67,7 @@ export default {
     
     data () {
       return {
-        url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        url: 'https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZWRlbnJhbW9uZWRhIiwiYSI6ImNraGo5YjR2OTExMnQyd25xdmkzdjN3bWsifQ.GlWzmLUylIA31m0J-ytxdQ',
         zoom: 3,
         center: [47.413220, -1.219482],
         maxZoom: 3,
@@ -65,6 +80,7 @@ export default {
           [85.06500754829302, 180.17578125]
         ]),
         attributionControl: false,
+        id: 'mapbox/light-v9',
         links: [
           'Dashboard',
           'Messages',
