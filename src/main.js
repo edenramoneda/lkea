@@ -7,7 +7,8 @@ import router from './router'
 import { LMap, LTileLayer, LMarker } from 'vue2-leaflet'
 import 'leaflet/dist/leaflet.css'
 import { Icon,latLngBounds,latLng } from 'leaflet';
-
+import vuetify from '@/plugins/vuetify'
+import './style.css'
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
   iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
@@ -27,5 +28,6 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  vuetify
 })
