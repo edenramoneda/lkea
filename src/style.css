@@ -56,9 +56,16 @@
 
 .gal-img
 {
-    height: 100%!important;
+    height: 300px!important;
 }
 
 .v-carousel__controls{
     background-color: transparent;
+}
+.bg-overlay{
+    background-color: #003399!important;
+    z-index:1;
+    height:60vh!important;
+    width:100%;
+    position: absolute;
 }

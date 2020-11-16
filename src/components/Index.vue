@@ -85,13 +85,32 @@
       </div>
        <div class="gallery-1">
         <v-row no-gutters>
+          <div class="bg-overlay"></div>
           <v-col
             v-for="(g,i) in interiors"
             :key="i"
             sm="4"
             md="3"
           >
-           <v-img :src="g.src" class="gal-img"></v-img>
+            <v-hover>
+              <template v-slot:default="{ hover }">
+                <v-card
+                class="mx-auto"
+                >
+                  <v-img :src="g.src" class="gal-img"></v-img>
+                  <v-fade-transition>
+                    <v-overlay
+                      v-if="hover"
+                      absolute
+                      color="#003399"
+                    >
+                      <v-icon style="height:50px!important">{{ g.icon}}</v-icon>
+                      <p>{{ g.label }}</p>
+                    </v-overlay>
+                  </v-fade-transition>
+                </v-card>
+              </template>
+            </v-hover>
           </v-col>
         </v-row>
       </div>
@@ -154,29 +173,46 @@ export default {
         interiors: [
           {
             src: require('@/assets/uploads/livingroom.jpg'),
+            icon: 'mdi-sofa',
+            label: 'LIVING ROOM'
           },
           {
             src: require('@/assets/uploads/bedroom4.jpg'),
+            icon: 'mdi-bed-double-outline',
+            label: 'BEDROOM'
           },
           {
             src: require('@/assets/uploads/bathroom.jpg'),
+             icon: 'mdi-shower',
+            label: 'BATHROOM'
           },
           {
             src: require('@/assets/uploads/kitchen2.jpg'),
+             icon: 'mdi-food-variant',
+            label: 'KITCHEN'
           },
           {
             src: require('@/assets/uploads/dining.jpg'),
+             icon: 'mdi-table-chair',
+            label: 'DINING'
           },
           {
             src: require('@/assets/uploads/textile.jpg'),
+            icon: 'mdi-ribbon',
+            label: 'TEXTILE'
           },
           {
             src: require('@/assets/uploads/business.jpg'),
+            icon: 'mdi-chair-school',
+            label: 'BUSINESS'
           },
           {
             src: require('@/assets/uploads/outdoor.jpg'),
+            icon: 'mdi-umbrella',
+            label: 'OUTDOOR'
           },
-        ]
+        ],
+        overlay: false
       };
     },
     methods: {
