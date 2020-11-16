@@ -1,17 +1,16 @@
+/*eslint-disable */
 #app{
     padding: 0;
     margin: 0!important;
-}
-.v-application--wrap{
-    background-color: #CAD2D3;
 }
 .lkea-bg-color{
     background-color: #003399!important;
 }
 
 .lkea-header-nav{
-    height:18rem!important;
+    height:15rem!important;
     border-radius: 0 0 50% 50%/ 0 0 35% 35%!important;
+    z-index: 900;
 }
 .lkea-btn-link{
     float: right
@@ -32,8 +31,34 @@
     margin-right: auto;
     left: 0;
     right: 0;
-    top:12rem;
+    top:8rem;
     text-align: center;
     font-size: 2rem;
     color: #FED102;
+    z-index: 1000;
+}
+.lkea-map-note{
+    color: #AAAAAA;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top:55rem;
+    text-align: center;
+    font-size: 1rem;
+    z-index: 1000;
+}
+
+.v-image, .v-responsive, .v-carousel__item .theme--dark{
+    height:60vh!important
+}
+
+.gal-img
+{
+    height: 100%!important;
+}
+
+.v-carousel__controls{
+    background-color: transparent;
 }

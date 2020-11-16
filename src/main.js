@@ -23,7 +23,7 @@ Vue.component('latLngBounds', latLngBounds)
 Vue.component('latLng', latLng)
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
+/* eslint-disable */
 new Vue({
   el: '#app',
   router,

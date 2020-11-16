@@ -1,16 +1,16 @@
 
+/*eslint-disable */
+// eslint-disable-next-line
 <template>
   <v-app id="inspire">
     <v-app-bar
       class="lkea-bg-color lkea-header-nav"
       dark
-      prominent
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-spacer/><v-spacer/>
     
-      
       <div class="lkea-btn-link" tile>
          <v-btn icon
         >
@@ -41,7 +41,7 @@
       </v-toolbar-title>
 
       <l-map
-        style="height: 80vh; width: 100%"
+        style="height: 80vh; width: 100%;margin-top:-5rem"
         :zoom="zoom"
         :maxZoom="maxZoom"
         :center="center"
@@ -57,11 +57,50 @@
       >
         <l-tile-layer :url="url" :noWrap="noWrap" :attributionControl="attributionControl"></l-tile-layer>
       </l-map>
+      <h4 class="lkea-map-note">If you are not in the United States, please select your location</h4>
+      <div class="lkea-slideshow">
+        <v-carousel style="height:60vh">
+          <v-carousel-item
+            v-for="(simgs,i) in slideshow_img"
+            :key="i"
+            :src="simgs.src"
+            reverse-transition="fade-transition"
+            transition="fade-transition"
+            style="height:60vh"
+          ></v-carousel-item>
+        </v-carousel>
+      </div>
+      <div class="gallery-1">
+        <v-row no-gutters>
+          <v-col
+            v-for="(g,i) in gallery"
+            :key="i"
+            cols="12"
+            sm="4"
+            
+          >
+            <v-img :src="g.src" class="gal-img"></v-img>
+          </v-col>
+        </v-row>
+      </div>
+       <div class="gallery-1">
+        <v-row no-gutters>
+          <v-col
+            v-for="(g,i) in interiors"
+            :key="i"
+            sm="4"
+            md="3"
+          >
+           <v-img :src="g.src" class="gal-img"></v-img>
+          </v-col>
+        </v-row>
+      </div>
   </v-app>
 </template>
 
 <script>
 /* eslint-disable */
+// eslint-disable-next-line
 import { latLngBounds, latLng } from "leaflet";
 export default {
     
@@ -70,7 +109,7 @@ export default {
         url: 'https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZWRlbnJhbW9uZWRhIiwiYSI6ImNraGo5YjR2OTExMnQyd25xdmkzdjN3bWsifQ.GlWzmLUylIA31m0J-ytxdQ',
         zoom: 3,
         center: [47.413220, -1.219482],
-        maxZoom: 3,
+        maxZoom: 20,
         minZoom: 3,
         noWrap: true,
         maxBoundsViscosity: 1.0,
@@ -87,6 +126,57 @@ export default {
           'Profile',
           'Updates',
         ],
+        slideshow_img: [
+          {
+            src: require('@/assets/uploads/bedroom1.jpg'),
+          },
+          {
+            src: require('@/assets/uploads/bedroom1.jpg'),
+          },
+          {
+            src: require('@/assets/uploads/bedroom1.jpg'),
+          },
+          {
+            src: require('@/assets/uploads/bedroom1.jpg'),
+          },
+        ],
+        gallery: [
+          {
+            src: require('@/assets/uploads/kitchen.jpg'),
+          },
+          {
+            src: require('@/assets/uploads/bedroom-closet-3.jpg'),
+          },
+          {
+            src: require('@/assets/uploads/b4.jpg'),
+          },
+        ],
+        interiors: [
+          {
+            src: require('@/assets/uploads/livingroom.jpg'),
+          },
+          {
+            src: require('@/assets/uploads/bedroom4.jpg'),
+          },
+          {
+            src: require('@/assets/uploads/bathroom.jpg'),
+          },
+          {
+            src: require('@/assets/uploads/kitchen2.jpg'),
+          },
+          {
+            src: require('@/assets/uploads/dining.jpg'),
+          },
+          {
+            src: require('@/assets/uploads/textile.jpg'),
+          },
+          {
+            src: require('@/assets/uploads/business.jpg'),
+          },
+          {
+            src: require('@/assets/uploads/outdoor.jpg'),
+          },
+        ]
       };
     },
     methods: {
